@@ -11,30 +11,8 @@ class Viaje:
         self.estado = "PENDIENTE"
 
     # IMPLEMENTAR metodo
-    def calcularTarifa(self):
-
-        pass
-
-    def iniciar(self):
-
-        if self.estado != "ACEPTADO":
-            print("Error: el viaje debe estar aceptado para iniciar.")
-            return False
-
-        self.estado = "EN_CURSO"
-
-        return True
-
-    def finalizar(self):
-
-        if self.estado != "EN_CURSO":
-            print("Error: el viaje debe estar en curso para finalizar.")
-            return False
-
-        self.estado = "FINALIZADO"
-
-        return True
-
-    def obtenerEstado(self):
-
-        print(f"Estado actual del viaje: {self.estado}")
+    def calcularTarifa(self) -> int:
+        # Regla de negocio 1: Tarifa base de $1.500 más $800 por km. 
+        # Debe expresarse como número entero.
+        self.tarifa = int(1500 + (800 * self.distancia))
+        return self.tarifa
